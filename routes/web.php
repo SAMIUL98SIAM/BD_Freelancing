@@ -30,7 +30,7 @@ Route::post('/login', 'LoginController@verify');
 Route::get('/logout', 'LogoutController@index');
 Route::get('/register','RegistrationController@index');
 Route::post('/register', 'RegistrationController@verify');
-Route::group(['middleware'=>['sess']] , function(){
+
 Route::group(['middleware'=>['type']] , function(){
 Route::resource('/admin', 'AdminController');
 Route::get('/Admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
@@ -115,7 +115,6 @@ Route::get('/active/contest/{id}', 'ManagerController@activeContest')->name('man
 Route::group(['middleware'=>['type3']] , function(){
 Route::resource('buyer', 'BuyerController');
 Route::get('/Buyer', 'BuyerController@buyer_by_projectApprove');
-
 Route::get('/Buyer/profile', 'BuyerController@profile')->name('buyer.profile');
 Route::post('/Buyer/profile', 'BuyerController@profile_update')->name('buyer.profile');
 Route::get('/Buyer/bidList', 'BuyerController@bidList')->name('buyer.bidList');
@@ -137,7 +136,7 @@ Route::post('/postContest/edit/{id}', 'BuyerController@postcontest_update')->nam
 Route::get('/download/{file}','BuyerController@download');
 
 Route::get('/projectSearch', 'ProjectSearchController@index')->name('search.projectsearch');
-Route::get('/projectSearch/action', 'ProjectSearchController@action')->name('projectsearch.action');\
+Route::get('/projectSearch/action', 'ProjectSearchController@action')->name('projectsearch.action');
 Route::get('/contestSearch', 'ContestSearchController@index')->name('search.contestsearch');
 Route::get('/contestSearch/action', 'ContestSearchController@action')->name('contestsearch.action');
 
@@ -172,5 +171,4 @@ Route::get('/sellerHome', 'HomeController@index')->middleware('sess');
         Route::get("detail/{id}",'HomeController@detail');
         Route::get("search",'HomeController@search');
         Route::post("add_to_cart",'HomeController@addToCart');
-});
 });

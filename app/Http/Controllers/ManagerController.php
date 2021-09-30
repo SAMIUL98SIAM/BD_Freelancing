@@ -147,6 +147,7 @@ class ManagerController extends Controller
     } 
 
    
+    
     public function suspendContest(Request $req,$id)
     {  
         $contest = Contest::find($id);
@@ -177,7 +178,6 @@ class ManagerController extends Controller
        return redirect()->route('manager.pendingContest');
     } 
 
-    
 
 
     

@@ -97,6 +97,7 @@ public function store_project(BuyerProjectRequest $req){
     $project->price=$req->price;
     $project->description=$req->description;
     $project->time=$req->time;
+    $project->type = $req->type;
     $project->active = "0";
     $id = session('id');
     $project->buyer_id=$id;
@@ -117,6 +118,7 @@ public function store_project(BuyerProjectRequest $req){
    
   
    
+
 
 
 
@@ -278,7 +280,7 @@ public function postcontest_update(BuyerContestRequest $req, $id){
         $bids = Bid::all();
         return view('buyer.seller_bidingproject')->with('bids',$bids);
     }
-
+   
 
     public function suspendBid(Request $req,$id)
     {  
@@ -309,6 +311,13 @@ public function postcontest_update(BuyerContestRequest $req, $id){
         $bid->save();
        return redirect()->route('buyer.pendingBid');
     } 
+    
+
+
+   
+
+
+
 
     public function chart()
     {
@@ -319,7 +328,7 @@ public function postcontest_update(BuyerContestRequest $req, $id){
         }
         $arr['chartData']=rtrim($chartData,",");
         
-      return view('buyerProfile.chart',$arr); 
+        return view('buyerProfile.chart',$arr); 
     } 
 
 

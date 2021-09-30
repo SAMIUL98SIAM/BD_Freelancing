@@ -32,8 +32,19 @@
 			<td><input type="number" name="price" value="{{old('price')}}"></td>
 		</tr>
 		<tr>
-			<td>Project Type</td>
+			<td>Description</td>
 			<td><textarea name="description" value="{{old('description')}}"></textarea></td>
+		</tr>
+		<tr>
+			<td>Project Type</td>
+			<td>
+			<select name="type" class="form-control">
+				<option selected="">type</option>
+				<option value="Problem_Solving">Problem Solving Skill</option>
+				<option value="Digital_Marketing">Digital Marketing</option>
+				<option value="Web">Web Related</option>
+				<option value="Python">Python</option>
+			</select></td>
 		</tr>
 		<tr>
 			<td></td>
